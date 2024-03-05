@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 import neuralNet.NeuralNetwork;
@@ -113,7 +114,7 @@ public class SnakeNN extends NeuralNetwork{
 	}
 	
 	public void saveWeightsAndBiasesToFile(File snakeNNFile) throws IOException {
-		BufferedWriter writer = new BufferedWriter(new FileWriter(snakeNNFile));
+		BufferedWriter writer = Files.newBufferedWriter(snakeNNFile.toPath());
 		
 		writer.write("Fitness: "+fitness);
 		
